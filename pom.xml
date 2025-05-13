@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.sathiya</groupId>
+	<artifactId>orderflow-parent</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>orderflow</name>
+	<description>Parent POM for the OrderFlow Microservices Project</description>
+
+	<properties>
+		<java.version>21</java.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<spring-boot.version>3.4.5</spring-boot.version>
+		<spring-cloud.version>2023.0.0</spring-cloud.version>
+	</properties>
+
+	<modules>
+		<!-- Microservice modules will be added here -->
+		<module>user-service</module>
+<!--		<module>product-service</module>-->
+<!--		<module>inventory-service</module>-->
+<!--		<module>order-service</module>-->
+		<!--Add other modules as you create them, e.g.: -->
+<!--		 <module>api-gateway</module> -->
+<!--		 <module>config-server</module> -->
+<!--		 <module>eureka-server</module> -->
+<!--		 <module>common-libs</module>   If you have a shared library module -->
+	</modules>
+
+	<dependencyManagement>
+		<dependencies>
+			<!-- Spring Boot BOM (Bill of Materials) -->
+			<!-- This imports recommended versions for all Spring Boot dependencies -->
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring-boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- Spring Cloud BOM (Bill of Materials) -->
+			<!-- This imports recommended versions for Spring Cloud components -->
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>${spring-cloud.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<!-- Example of managing a specific library version (optional if covered by BOMs) -->
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.30</version>
+            </dependency>
+
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+		<!-- Plugin Management: Define versions and default configurations for plugins -->
+		<pluginManagement>
+			<plugins>
+				<!-- Spring Boot Maven Plugin: Essential for packaging and running Spring Boot apps -->
+				<plugin>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-maven-plugin</artifactId>
+					<version>${spring-boot.version}</version>
+					<executions>
+						<execution>
+							<goals>
+								<goal>repackage</goal> <!-- Makes the JAR executable -->
+							</goals>
+						</execution>
+					</executions>
+				</plugin>
+
+				<!-- Maven Compiler Plugin: To set Java version -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.14.0</version> <!-- Use a recent version -->
+					<configuration>
+						<source>${java.version}</source>
+						<target>${java.version}</target>
+						<encoding>${project.build.sourceEncoding}</encoding>
+					</configuration>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<!-- Plugins that apply to all modules directly (less common in parent for specific execution) -->
+		<!-- More often, you define them in pluginManagement and children refer to them -->
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<!-- Configuration is inherited from pluginManagement -->
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
