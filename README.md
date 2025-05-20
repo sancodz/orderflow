@@ -97,11 +97,11 @@ OrderFlow follows a microservices architecture. The key services include:
 *(Update this section as you progress)*
 
 *   **User Management:**
-    *   [ ] User Registration
-    *   [ ] User Login & JWT Generation
-    *   [ ] Get User Profile
+    *   [x] User Registration
+    *   [x] User Login & JWT Generation
+    *   [x] Get User Profile
 *   **Product Catalog:**
-    *   [ ] Create/Read/Update/Delete Products
+    *   [x] Create/Read/Update/Delete Products
     *   [ ] List Products with Pagination
 *   **Inventory Management:**
     *   [ ] Update Stock Levels
