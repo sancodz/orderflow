@@ -104,8 +104,8 @@ OrderFlow follows a microservices architecture. The key services include:
     *   [x] Create/Read/Update/Delete Products
     *   [ ] List Products with Pagination
 *   **Inventory Management:**
-    *   [ ] Update Stock Levels
-    *   [ ] Check Product Availability
+    *   [x] Update Stock Levels
+    *   [x] Check Product Availability
 *   **Order Processing:**
     *   [ ] Create Order (validating user, product, stock)
     *   [ ] Get Order Details
