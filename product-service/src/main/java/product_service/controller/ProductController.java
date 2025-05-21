@@ -37,20 +37,20 @@ public class ProductController {
     }
 
     @GetMapping("/sku/{sku}")
-    public ResponseEntity<ProductResponseDTO> getProductBySku(@PathVariable String sku) {
+    public ResponseEntity<ProductResponseDTO> getProductBySku(@PathVariable(name = "sku") String sku) {
         ProductResponseDTO product = productService.getProductBySku(sku);
         return ResponseEntity.ok(product);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<ProductResponseDTO> updateProduct(@PathVariable Long id,
+    public ResponseEntity<ProductResponseDTO> updateProduct(@PathVariable(name = "id") Long id,
                                                             @Valid @RequestBody ProductRequestDTO productRequestDTO) {
         ProductResponseDTO updatedProduct = productService.updateProduct(id, productRequestDTO);
         return ResponseEntity.ok(updatedProduct);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteProduct(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteProduct(@PathVariable(name = "id") Long id) {
         productService.deleteProduct(id);
         return ResponseEntity.noContent().build();
     }

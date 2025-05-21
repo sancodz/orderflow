@@ -24,7 +24,7 @@
 		<module>user-service</module>
 		<module>product-service</module>
 		<module>inventory-service</module>
-<!--		<module>order-service</module>-->
+		<module>order-service</module>
 		<!--Add other modules as you create them, e.g.: -->
 <!--		 <module>api-gateway</module> -->
 <!--		 <module>config-server</module> -->
